@@ -5,7 +5,8 @@
 	<property name="target" value="1.8"/>
 	<property name="source" value="1.8"/>
 	<!-- Update the value to your folder location -->
-	<property name="lib" value="../../lib"/>
+	<property name="lib" value="../../lib/junit.jar"/>
+	<property name="srcdir" value="week04/;test/"/>
 	<property name="absolute..lib.path" location="${lib}"/>
 	<target name="init" description="Creates the target bin folder">
 		<mkdir dir="../../bin"/>

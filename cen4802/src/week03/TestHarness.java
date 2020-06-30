@@ -53,8 +53,9 @@ public class TestHarness
 		try
 		{
 			// read in the file into memory
-			//File employeeTestFile = new File("src/week03/EmployeeTest.java");
-			File employeeTestFile = new File("../src/EmployeeTest.java");
+			// File employeeTestFile = new File("src/week03/EmployeeTest.java");
+			File employeeTestFile = new File(
+					"../cen4802/src/week03/EmployeeTest.java");
 			if(employeeTestFile.exists())
 			{
 				fileReader = new FileReader(employeeTestFile);
@@ -71,7 +72,8 @@ public class TestHarness
 			}
 			else
 			{
-				String msg = String.format("File doesn't exist at '%s'", employeeTestFile.getCanonicalPath());
+				String msg = String.format("File doesn't exist at '%s'",
+						employeeTestFile.getCanonicalPath());
 				trace(msg);
 				success = false;
 			}
@@ -83,7 +85,14 @@ public class TestHarness
 		}
 		finally
 		{
-			if( reader != null )try{reader.close();}catch(IOException ex){}
+			if(reader != null)
+				try
+				{
+					reader.close();
+				}
+				catch(IOException ex)
+				{
+				}
 		}
 		return success;
 	}
@@ -104,7 +113,7 @@ public class TestHarness
 		testsToFind.add("Employee()");
 
 		String twoParameterConstructorRegEx = ".*Employee\\(\".*\", \".*\"\\).*";
-		String threeParameterConstructorRegEx =  ".*Employee\\(\".*\", \".*\", .*\\).*" ;
+		String threeParameterConstructorRegEx = ".*Employee\\(\".*\", \".*\", .*\\).*";
 
 		String text = buffer.toString();
 
@@ -130,7 +139,7 @@ public class TestHarness
 			trace(msg);
 			success = false;
 		}
-		
+
 		trace("testing three parameter constructor");
 		Pattern p2 = Pattern.compile(threeParameterConstructorRegEx);
 		m = p2.matcher(text);
